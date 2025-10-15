@@ -1,7 +1,8 @@
 import express from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
-const { Pool } = require('pg');
+import pkg from 'pg';
+const { Pool } = pkg;
 
 const app = express();
 
@@ -14,7 +15,8 @@ const {
     DB_USER = 'postgres',
     DB_PASSWORD = 'postgres',
     DB_NAME = 'todoapp',
-    DB_PORT = 5432
+    DB_PORT = 5432,
+    PORT = 3000
 } = process.env;
 
 const poolInfo = new Pool({

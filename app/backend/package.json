@@ -1,5 +1,5 @@
 {
-    "name": "backend",
+    "name": "lab-backend",
     "version": "1.0.0",
     "type": "module",
     "description": "API para el frontend del proyecto",
