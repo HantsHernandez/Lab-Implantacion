@@ -64,7 +64,13 @@ async function toggleTask(id, completed) {
         const task = await response.json();
 
         const fila = document.getElementById(id);
-        fila.querySelector(".completed").innerText = task.completed ? "Completada" : "Pendiente";
+        if(task.completed) {
+            fila.classList.add("text-decoration-line-through");
+            fila.querySelector(".completed").innerText = "Completada";
+        }else{
+            fila.classList.remove("text-decoration-line-through");
+            fila.querySelector(".completed").innerText = "Pendiente";
+        }
     } catch (error) {
         console.error("Error:", error);
     }
@@ -88,7 +94,12 @@ function addRow(task) {
     fila.setAttribute("id", task.id);
     fila.querySelector(".id").innerText = task.id;
     fila.querySelector(".title").innerText = task.title;
-    fila.querySelector(".completed").innerText = task.completed ? "Completada" : "Pendiente";
+    if(task.completed) {
+        fila.classList.add("text-decoration-line-through");
+        fila.querySelector(".completed").innerText = "Completada";
+    }else{
+        fila.querySelector(".completed").innerText = "Pendiente";
+    }
     fila.querySelector(".created_at").innerText = new Date(task.created_at).toLocaleString();
     fila.querySelector(".btn-check-box").checked = task.completed;
     document.getElementById("task-table").appendChild(fila);
