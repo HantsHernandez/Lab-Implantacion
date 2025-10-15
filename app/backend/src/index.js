@@ -40,7 +40,15 @@ async function crearTabla() {
     await poolInfo.query(query);
 }
 
-app.get('/health', (_req, res) => res.json({ ok: true }))
+app.get('/health', async (_req, res) => {
+    try {
+        await poolInfo.query('SELECT 1');
+        res.json({ status: 'OK', database: 'connected' });
+    } catch (err) {
+        res.status(500).json({ status: 'ERROR', database: 'disconnected' });
+    }
+
+});
 
 app.get('/tasks', async (_req, res) => {
     try {
