@@ -63,6 +63,21 @@ app/
 ├─ .gitignore
 └─ README.md
 
+## API Endpoints
+Estado del servidor
+GET:	/health
+
+Listar todas las tareas
+GET:	/tasks
+
+Crear una tarea	{ "title": "Nueva tarea" }
+POST:	/tasks
+
+Marcar completada/no completada	{ "completed": true }
+PUT:	/tasks/:id
+
+Eliminar una tarea
+DELETE:	/tasks/:id
 
 ## Autores 
 Estudiante 1: Hants Aaron Hernandez Menjivar
